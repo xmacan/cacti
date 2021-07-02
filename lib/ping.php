@@ -167,7 +167,7 @@ class Net_Ping
 				$result = shell_exec('ping -t ' . ceil($this->timeout/1000) . ' -c ' . $this->retries . ' ' . $this->host['hostname']);
 			} elseif (substr_count(strtolower(PHP_OS), 'freebsd')) {
 				if (strpos($host_ip, ':') !== false) {
-					$result = shell_exec('ping6 -X ' . ceil($this->timeout/1000) . ' -c ' . $this->retries . ' ' . $this->host['hostname']);
+					$result = shell_exec('ping6 -x ' . $this->timeout . ' -c ' . $this->retries . ' ' . $this->host['hostname']);
 				} else {
 					$result = shell_exec('ping -t ' . ceil($this->timeout/1000) . ' -c ' . $this->retries . ' ' . $this->host['hostname']);
 				}
